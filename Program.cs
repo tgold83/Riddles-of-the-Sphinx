@@ -6,9 +6,9 @@ namespace Riddles
 {
   public class ask
   {
-    public static void askRiddle(Riddle argument)
+    public static bool askRiddle(Riddle argument)
     {
-      string correctAnswer = "You have answered correctly and defeated the Mighty Sphinx!";
+      string correctAnswer = "You answered the riddle correctly!";
       string incorrectAnswer = "You have been eaten by the Mighty Sphinx! Better luck next time!";
       Console.WriteLine(argument.GetQuestion());
       string riddleAnswer = Console.ReadLine();
@@ -16,10 +16,12 @@ namespace Riddles
       if (riddleAnswer == argument.GetAnswer())
       {
         Console.WriteLine(correctAnswer);
+        return true;
       }
       else
       {
         Console.WriteLine(incorrectAnswer);
+        return false;
       }
     }
   }
@@ -30,58 +32,17 @@ namespace Riddles
 
       Riddle age = new Riddle("What goes up, but never comes down?", "age");
       Riddle towel = new Riddle("What gets wet as it dries?", "towel");
-      ask.askRiddle(age);
-      ask.askRiddle(towel);
+      Riddle future = new Riddle("What is always in front of you but can't be seen?", "future");
+      if (ask.askRiddle(age))
+      {
+        if (ask.askRiddle(towel))
+        {
+          if (ask.askRiddle(future))
+          {
+            Console.WriteLine("You have answered all the questions correctly and defeated the Mighty Sphinx!");
+          }
+        }
+      }
     }
-
-      // Console.WriteLine(age.GetQuestion());
-      // string riddleAnswer = Console.ReadLine();
-      // riddleAnswer = riddleAnswer.ToLower();
-
-      // askRiddle(age)
-
-      // if (riddleAnswer == age.GetAnswer())
-      // {
-      //   Console.WriteLine(correctAnswer);
-        
-      // }
-      // else
-      // {
-      //   Console.WriteLine(incorrectAnswer);
-        
-      // }
-
-
-      //function askRiddle(arguement)
-      //{
-
-      //Console.WriteLine("You have been greeted by the Mighty Sphinx! Answer my riddle correctly or I will eat you!");
-      //Console.WriteLine("What goes up, but never comes down?");
-      
-      
-      // if (riddleAnswer == "your age" || riddleAnswer == "age")
-      // {
-      //   Console.WriteLine("You have answered correctly and defeated the Misghty Sphinx!");
-      // } else 
-      // {
-      //   Console.WriteLine("You have been eaten by the Mighty Sphinx! Better luck next time!");
-      // }
-
-      // riddle riddleName = new riddle(a, b)
-      // writeline(a)
-      // get answer
-      // if anwer == b
-
-
-    //}
-
-
-   // ask a riddle
-
-   // if user input solves it they escape
-   // if not they get eaten
-
-   //later we ask more than one question
-   //then we build a thing to ask random questions 
   }
 } 
