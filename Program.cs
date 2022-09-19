@@ -4,17 +4,16 @@ using Riddles.Models;
 
 namespace Riddles
 {
-  public class Program
+  public class ask
   {
-    public static void Main()
+    public static void askRiddle(Riddle argument)
     {
       string correctAnswer = "You have answered correctly and defeated the Mighty Sphinx!";
       string incorrectAnswer = "You have been eaten by the Mighty Sphinx! Better luck next time!";
-      Riddle age = new Riddle("What goes up, but never comes down?", "age");
-      Console.WriteLine(age.GetQuestion());
+      Console.WriteLine(argument.GetQuestion());
       string riddleAnswer = Console.ReadLine();
       riddleAnswer = riddleAnswer.ToLower();
-      if (riddleAnswer == age.GetAnswer())
+      if (riddleAnswer == argument.GetAnswer())
       {
         Console.WriteLine(correctAnswer);
       }
@@ -22,6 +21,40 @@ namespace Riddles
       {
         Console.WriteLine(incorrectAnswer);
       }
+    }
+  }
+  public class Program
+  {
+    public static void Main()
+    {
+
+      Riddle age = new Riddle("What goes up, but never comes down?", "age");
+      Riddle towel = new Riddle("What gets wet as it dries?", "towel");
+      ask.askRiddle(age);
+      ask.askRiddle(towel);
+    }
+
+      // Console.WriteLine(age.GetQuestion());
+      // string riddleAnswer = Console.ReadLine();
+      // riddleAnswer = riddleAnswer.ToLower();
+
+      // askRiddle(age)
+
+      // if (riddleAnswer == age.GetAnswer())
+      // {
+      //   Console.WriteLine(correctAnswer);
+        
+      // }
+      // else
+      // {
+      //   Console.WriteLine(incorrectAnswer);
+        
+      // }
+
+
+      //function askRiddle(arguement)
+      //{
+
       //Console.WriteLine("You have been greeted by the Mighty Sphinx! Answer my riddle correctly or I will eat you!");
       //Console.WriteLine("What goes up, but never comes down?");
       
@@ -40,7 +73,7 @@ namespace Riddles
       // if anwer == b
 
 
-    }
+    //}
 
 
    // ask a riddle
